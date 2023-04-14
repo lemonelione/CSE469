@@ -2,6 +2,7 @@ import datetime
 import hashlib
 import os
 import pickle
+import sys
 '''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Authors:        MinhHien Luong
     File Name:      blockchain.py
@@ -75,6 +76,72 @@ class Blockchain:
             if isinstance(block.data, Case) and block.data.case_id == case_id:
                 return block.data
         return None
+
+"""
+runProgram class pushed by Leon Kwong
+Notes: Functions still need to be coded in to do what it needs to do.
+"""
+class runProgram:
+    def add():
+        print("add function")
+
+    def checkout():
+        print("checkout function")
+
+    def checkin():
+        print("checkin function")
+
+    def log():
+        print("log function")
+
+    def remove():
+        print("remove function")
+
+    def init():
+        print("init function")
+
+    def verify():
+        print("verify function")
+
+    #Check the second entry to ask what operation needs to be conducted based on command
+    #Create switch statement here to read the commands in specificed format
+    match sys.argv[2]:
+
+        case "add":
+            itemIDlist = []
+            caseID = sys.argv[4]
+            itemID1 = sys.argv[6]
+            #For loop store every caseID after first one into a list.
+            for item in range(8, len(sys.argv), 2):
+                itemIDlist.append(sys.argv[item])
+            #print(itemIDlist)
+
+        case "checkout":
+            itemID = sys.argv[3]
+
+        case "checkin":
+            itemID = sys.argv[3]
+
+        case "log":
+            if sys.argv[3].strip("[]") == "-r":
+                remove()
+
+            #do something call method to do reverse #If -r is not an option
+            else:
+                numEnt = sys.argv[4].strip("[]")
+                caseID = sys.argv[6].strip("[]")
+                itemID = sys.argv[8].strip("[]")
+
+        case "remove":
+            itemID = sys.argv[4]
+            reason = sys.argv[6]
+            owner = sys.argv[8].strip("[]")
+
+        case "init":
+            init()
+
+        case "verify":
+            verify()
 
 # Example usage
 if __name__ == '__main__':
